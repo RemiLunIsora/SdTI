@@ -1,0 +1,8 @@
+site_name: SdTI
+
+theme: 
+  name: "material"
+
+nav:   
+  - indice: index.md
+  - descrizione del progetto: description.md
