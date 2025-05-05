@@ -7,6 +7,7 @@ nav:
   - indice: index.md
   - descrizione del progetto: description.md
   - analisi: analisys.md 
+  - diagrammi: diagrams.md
 
 markdown_extensions:
   - admonition # notes make pretty
