@@ -322,6 +322,19 @@
     H --&gt; J[Chiudo l'app]
     J --&gt; I@{ shape: framed-circle, label: "Stop" }</code></pre>
 <h2><span style="font-weight: 400;">Diagramma di Sequenza</span></h2>
+<pre class="mermaid"><code>sequenceDiagram
+ Client di Gioco-&gt;&gt;Client di Gioco: Interazione (Giocatore, nemico/Giocatore, giocatore) (Inzio combattimento)
+ activate Client di Gioco
+ Client di Gioco-&gt;&gt;Gestore di Combattimento: Inizia Combattimento
+ activate Gestore di Combattimento
+ Client di Gioco-&gt;&gt;Interfaccia: Mostra schermata combattimento
+deactivate Client di Gioco
+Client di Gioco-&gt;&gt;Client di Gioco: Interazione (Giocatore, NPC/Giocatore, Giocatore) (Scambio/acquisto di items)
+activate Client di Gioco
+Client di Gioco-&gt;&gt;Gestore Inventario: Seleziona items
+activate Gestore Inventario
+Client di Gioco-&gt;&gt;Interfaccia: Mostra Inventario 
+deactivate Client di Gioco</code></pre>
 
 
 

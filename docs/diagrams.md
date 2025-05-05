@@ -14,3 +14,18 @@ graph TD
     J --> I@{ shape: framed-circle, label: "Stop" }
 ```
 <h2><span style="font-weight: 400;">Diagramma di Sequenza</span></h2>
+``` mermaid
+sequenceDiagram
+ Client di Gioco->>Client di Gioco: Interazione (Giocatore, nemico/Giocatore, giocatore) (Inzio combattimento)
+ activate Client di Gioco
+ Client di Gioco->>Gestore di Combattimento: Inizia Combattimento
+ activate Gestore di Combattimento
+ Client di Gioco->>Interfaccia: Mostra schermata combattimento
+deactivate Client di Gioco
+Client di Gioco->>Client di Gioco: Interazione (Giocatore, NPC/Giocatore, Giocatore) (Scambio/acquisto di items)
+activate Client di Gioco
+Client di Gioco->>Gestore Inventario: Seleziona items
+activate Gestore Inventario
+Client di Gioco->>Interfaccia: Mostra Inventario 
+deactivate Client di Gioco
+```
