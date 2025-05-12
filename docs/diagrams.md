@@ -33,16 +33,111 @@ deactivate Client di Gioco
 <h2><span style="font-weight: 400;">Diagramma Casi d'uso</span></h2>
 ``` mermaid
 
-sequenceDiagram
+ sequenceDiagram
   actor A as Giocatore
   participant C as Gestione Combattimento
   participant D as Gestione Quest
   participant E as Gestione Inventario
   participant F as Report Statistiche
   actor B as Sistema
+  
   A ->> C:
   A ->> E:
   A ->> D:
   B ->> D:
   B ->> F:
 ```
+
+<h2><span style="font-weight: 400;">Diagramma delle classi </span></h2>
+``` mermaid
+classDiagram
+    Personaggio o-- Statistiche : Ha
+    Personaggio o-- Inventario : Ha
+    Personaggio <|-- PersonaggioGiocatore : Eredita
+    Personaggio <|-- PersonaggioNemico : Eredita
+
+
+    GestoreCombattimento <-- PersonaggioGiocatore : Gestisce
+    GestoreCombattimento <-- PersonaggioNemico : Gestisce
+
+
+    GestoresScambi --> Inventario : Gestisce
+   
+    Inventario o-- Oggetto : Contiene
+    Equipaggiamento --o Oggetto : è un
+    Consumabili --o Oggetto : è un
+    Arma --|> Equipaggiamento : Eredita
+    Armatura --|> Equipaggiamento : Eredita
+    Accessorio --|> Equipaggiamento : Eredita
+    Personaggio --> Equipaggiamento : Equipaggia
+
+
+    PersonaggioNemico --> Oggetto : Droppa
+class GestoreCombattimento {
+     
+      +IniziaCombattimento()
+      +TerminaCombattimento()
+}
+class GestoresScambi {
+     
+      +IniziaScambio()
+      +TerminaScambio()
+}
+
+
+class Personaggio {
+      -Nome
+      -SaluteAttualeint
+      +FaDanno()
+      +PrendiDanno()
+      +SubisciEffetto()
+}
+class PersonaggioGiocatore {
+      -Nome
+      -SaluteAttualeint
+      +FaDanno()
+      +PrendiDanno()
+      +SubisciEffetto()
+}
+class PersonaggioNemico {
+    -Potenza: String
+}
+
+
+class Statistiche {
+      - Forza: Int  
+      - Difesa: Int  
+      - Velocità: Int
+      - Fortuna: Int
+}
+class Inventario {
+      - oggetti: Map
+      -  
+      + AggiungiOggetto(Item, Quantity)
+      + RimuoviOggetto(Item, Quantity)
+}
+
+
+class Oggetto {
+      - Nome: String
+      - Descrizione: String
+      - Valore: String
+}
+class Equipaggiamento {
+      - Nome: string
+      - Modificatori: Array
+}
+  class Arma {
+      -Tipo: Int
+      -Potenza: Int
+  }
+  class Armatura {
+      -Armatura: Int
+  }
+  class Accessorio {
+      -Effetti: String
+  }
+   class Consumabili {
+      -Effetti: String
+  }
+``` 
