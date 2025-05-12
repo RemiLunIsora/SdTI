@@ -30,22 +30,21 @@ Client di Gioco->>Interfaccia: Mostra Inventario
 deactivate Client di Gioco
 ```
 
-<h2><span style="font-weight: 400;">Diagramma Casi d'uso</span></h2>
+<h2><span style="font-weight: 40S0;">Diagramma Casi d'uso</span></h2>
 ``` mermaid
-
- sequenceDiagram
+sequenceDiagram
   actor A as Giocatore
   participant C as Gestione Combattimento
   participant D as Gestione Quest
   participant E as Gestione Inventario
   participant F as Report Statistiche
   actor B as Sistema
-  
-  A ->> C:
-  A ->> E:
-  A ->> D:
-  B ->> D:
-  B ->> F:
+
+  A->>C: 
+  A->>E: 
+  A->>D: 
+  B->>D: 
+  B->>F: 
 ```
 
 <h2><span style="font-weight: 400;">Diagramma delle classi </span></h2>

@@ -335,20 +335,111 @@ Client di Gioco-&gt;&gt;Gestore Inventario: Seleziona items
 activate Gestore Inventario
 Client di Gioco-&gt;&gt;Interfaccia: Mostra Inventario 
 deactivate Client di Gioco</code></pre>
-<h2><span style="font-weight: 400;">Diagramma Casi d'uso</span></h2>
-<pre class="mermaid"><code>
-sequenceDiagram
+<h2><span style="font-weight: 40S0;">Diagramma Casi d'uso</span></h2>
+<pre class="mermaid"><code>sequenceDiagram
   actor A as Giocatore
   participant C as Gestione Combattimento
   participant D as Gestione Quest
   participant E as Gestione Inventario
   participant F as Report Statistiche
   actor B as Sistema
-  A -&gt;&gt; C:
-  A -&gt;&gt; E:
-  A -&gt;&gt; D:
-  B -&gt;&gt; D:
-  B -&gt;&gt; F:</code></pre>
+
+  A-&gt;&gt;C: 
+  A-&gt;&gt;E: 
+  A-&gt;&gt;D: 
+  B-&gt;&gt;D: 
+  B-&gt;&gt;F: </code></pre>
+<h2><span style="font-weight: 400;">Diagramma delle classi </span></h2>
+<pre class="mermaid"><code>classDiagram
+    Personaggio o-- Statistiche : Ha
+    Personaggio o-- Inventario : Ha
+    Personaggio &lt;|-- PersonaggioGiocatore : Eredita
+    Personaggio &lt;|-- PersonaggioNemico : Eredita
+
+
+    GestoreCombattimento &lt;-- PersonaggioGiocatore : Gestisce
+    GestoreCombattimento &lt;-- PersonaggioNemico : Gestisce
+
+
+    GestoresScambi --&gt; Inventario : Gestisce
+
+    Inventario o-- Oggetto : Contiene
+    Equipaggiamento --o Oggetto : è un
+    Consumabili --o Oggetto : è un
+    Arma --|&gt; Equipaggiamento : Eredita
+    Armatura --|&gt; Equipaggiamento : Eredita
+    Accessorio --|&gt; Equipaggiamento : Eredita
+    Personaggio --&gt; Equipaggiamento : Equipaggia
+
+
+    PersonaggioNemico --&gt; Oggetto : Droppa
+class GestoreCombattimento {
+
+      +IniziaCombattimento()
+      +TerminaCombattimento()
+}
+class GestoresScambi {
+
+      +IniziaScambio()
+      +TerminaScambio()
+}
+
+
+class Personaggio {
+      -Nome
+      -SaluteAttualeint
+      +FaDanno()
+      +PrendiDanno()
+      +SubisciEffetto()
+}
+class PersonaggioGiocatore {
+      -Nome
+      -SaluteAttualeint
+      +FaDanno()
+      +PrendiDanno()
+      +SubisciEffetto()
+}
+class PersonaggioNemico {
+    -Potenza: String
+}
+
+
+class Statistiche {
+      - Forza: Int  
+      - Difesa: Int  
+      - Velocità: Int
+      - Fortuna: Int
+}
+class Inventario {
+      - oggetti: Map
+      -  
+      + AggiungiOggetto(Item, Quantity)
+      + RimuoviOggetto(Item, Quantity)
+}
+
+
+class Oggetto {
+      - Nome: String
+      - Descrizione: String
+      - Valore: String
+}
+class Equipaggiamento {
+      - Nome: string
+      - Modificatori: Array
+}
+  class Arma {
+      -Tipo: Int
+      -Potenza: Int
+  }
+  class Armatura {
+      -Armatura: Int
+  }
+  class Accessorio {
+      -Effetti: String
+  }
+   class Consumabili {
+      -Effetti: String
+  }</code></pre>
 
 
 
