@@ -312,9 +312,11 @@
 <h2><span style="font-weight: 400;">Diagramma Attività</span></h2>
 <pre class="mermaid"><code>graph TD
     circleId(("`Start`")) --&gt; A
-    A(["Apro l'app"]) --&gt; B{"Collegamento ad una rete"}
-    B --&gt; K@{ shape: fork, label: "Fork or Join" } &amp; D["Errore"]
-    K --&gt; C["Collegamento a GPS"] &amp; L[Collegamengo all'account personale]
+    A(["Apro l'app"]) --&gt; B{"Tentativo di collegamento ad una rete"}
+    B ---&gt; K@{ shape: fork, label: "Fork or Join" }
+    B ---&gt; D["Errore"]
+    D --&gt; B
+    K --&gt; C["Collegamento a GPS"] &amp; L[Collegamento all'account personale]
     C &amp; L--&gt; F@{ shape: fork, label: "Fork or Join" }
     F --&gt; E[Utilizzo l'app]
     F --&gt; G[Tracciamento del GPS]
