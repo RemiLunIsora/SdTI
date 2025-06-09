@@ -1,19 +1,11 @@
-# Welcome to MkDocs
+# Sala da Tè Interdimensionale 
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Indice sito
 
-## Commands
+* [Descrizione](https://remilunisora.github.io/SdTI/description/)- Una breve descrizione.
+* [Analisi](https://remilunisora.github.io/SdTI/analisys/)- Le analisi dell'applicativo.
+* [Diagrammi](https://remilunisora.github.io/SdTI/diagrams/) - i diagrammi delll'applicativo.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+made with MKdocs, for full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 <!--mkdocs gh-deploy--!>
